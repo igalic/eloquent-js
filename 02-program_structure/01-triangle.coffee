@@ -1,4 +1,4 @@
-String.prototype.repeat = (times) ->
+String::repeat = (times) ->
   new Array(times + 1).join(this) # still unhappy about "this" ;)
 
 
