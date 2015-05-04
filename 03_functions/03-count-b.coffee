@@ -1,8 +1,5 @@
 countChar = (s, c) ->
-  count = 0
-
-  count++ for i in s when i is c
-  return count
+  return s.split(c).length - 1
 
 countBs = (s) ->
   return countChar(s, 'B')
