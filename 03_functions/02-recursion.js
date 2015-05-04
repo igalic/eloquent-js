@@ -1,4 +1,4 @@
-isEven = function(n) {
+var isEven = function(n) {
   x = Math.abs(n);
   if (x === 0) return true;
   if (x === 1) return false;
