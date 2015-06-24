@@ -2,8 +2,10 @@ arrayToList = (ar) ->
   return null if ar.length == 0
   rest = ar
   e = rest.shift()
+  # this is basically "prepend"
   return { value: e, rest: arrayToList(rest) }
 
+# it would be nice if i could figure out how to make this recursiver..
 listToArray = (list) ->
   values = []
   values.push list.value
@@ -13,6 +15,7 @@ listToArray = (list) ->
     rest = rest.rest
   return values
 
+# we should use maybe monads..
 nth = (list, index) ->
   return null if index < 0
   return list.value if index == 0
