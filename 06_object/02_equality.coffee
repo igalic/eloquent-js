@@ -1,4 +1,5 @@
 # deep equality
+'use strict'
 
 eql = (left, right) ->
   objEql = (left, right) ->
@@ -12,9 +13,10 @@ eql = (left, right) ->
     return true
 
   return true if left == right
+  return false if (left == undefined or right == undefined)
   return false if left.constructor.name != right.constructor.name
   return false if left.constructor.name == 'Function' # for now
   return false if left.length != right.length
   return arrayEql(left, right) if left.constructor.name == 'Array'
-  return deepEql(left, right) if left.constructor.name == 'Object'
+  return objEql(left, right) if left.constructor.name == 'Object'
   return false
