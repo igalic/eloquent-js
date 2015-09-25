@@ -19,3 +19,8 @@ eql = (left, right) ->
   return arrayEql(left, right) if left.constructor.name == 'Array'
   return objEql(left, right) if left.constructor.name == 'Object'
   return false
+
+obj = {here: {is: "an"}, object: 2}
+console.log(eql(obj, obj))
+console.log(eql(obj, {here: 1, object: 2}))
+console.log(eql(obj, {here: {is: "an"}, object: 2}))
