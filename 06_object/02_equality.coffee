@@ -4,7 +4,7 @@
 eql = (left, right) ->
   objEql = (left, right) ->
     for key, value of left
-      return false unless eql(key, right[value])
+      return false unless eql(value, right[key])
     return true
 
   arrayEql = (left, right) ->
@@ -13,7 +13,6 @@ eql = (left, right) ->
     return true
 
   return true if left == right
-  return false if (left == undefined or right == undefined)
   return false if left.constructor.name != right.constructor.name
   return false if left.constructor.name == 'Function' # for now
   return false if left.length != right.length
